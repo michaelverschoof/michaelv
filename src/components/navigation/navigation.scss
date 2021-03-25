@@ -1,0 +1,35 @@
+.navigation {
+    height: 4.5rem;
+}
+
+.nav-item {
+    transition: background-color 0.15s ease-in-out;
+
+    .router-link-active {
+        &:nth-child(1) {
+            background-color: #ceead6;
+        }
+
+        &:nth-child(2) {
+            background-color: #f7d2ce;
+        }
+
+        &:nth-child(3) {
+            background-color: #cef0f3;
+        }
+    }
+
+    &:hover {
+        &:nth-child(1) {
+            background-color: #ceead6;
+        }
+
+        &:nth-child(2) {
+            background-color: #f7d2ce;
+        }
+
+        &:nth-child(3) {
+            background-color: #cef0f3;
+        }
+    }
+}

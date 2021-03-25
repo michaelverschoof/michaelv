@@ -1,0 +1,27 @@
+{
+    "apply": "Apply",
+
+    "navigation": {
+        "menu": {
+            "about": "Over mij",
+            "portfolio": "Portfolio",
+            "blog": "Blog"
+        }
+    },
+
+    "home": {
+        "title": "Home"
+    },
+
+    "about": {
+        "title": "Over mij"
+    },
+
+    "Portfolio": {
+        "title": "Portfolio"
+    },
+
+    "Blog": {
+        "title": "Blog"
+    }
+}

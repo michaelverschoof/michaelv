@@ -1,0 +1,38 @@
+.save-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 200ms ease;
+    outline: none !important;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transition-duration: 200ms;
+    }
+
+    &.working {
+        img {
+            animation: saving-rotate 700ms ease infinite;
+            height: 44px;
+        }
+    }
+
+    &.saved {
+        // Note that the timeout in save-button.ts is linked to the animation time here
+        animation: saved-fade 1500ms ease-out forwards;
+    }
+}
+
+@keyframes saved-fade {
+    20% {
+        background-color: green;
+    }
+
+    50% {
+        background-color: green;
+    }
+}
+
+@keyframes saving-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

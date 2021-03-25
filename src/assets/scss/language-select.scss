@@ -1,0 +1,9 @@
+.language-select {
+
+    .radio-input {
+
+        &:not(:last-child) {
+            @extend .mb-3;
+        }
+    }
+}

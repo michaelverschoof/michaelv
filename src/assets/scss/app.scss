@@ -1,0 +1,141 @@
+// BOOTSTRAP THEME
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/bootstrap-utilities";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+
+//@import "~bootstrap/scss/mixins";
+//@import "~bootstrap/scss/bootstrap";
+//@import "~bootstrap/scss/functions";
+//@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/utilities";
+//@import "~bootstrap/scss/helpers";
+//@import "~bootstrap/scss/root";
+//@import "~bootstrap/scss/images";
+//@import "~bootstrap/scss/tables";
+//@import "~bootstrap/scss/forms";
+//@import "~bootstrap/scss/buttons";
+//@import "~bootstrap/scss/list-group";
+//@import "~bootstrap/scss/reboot";
+//@import "~bootstrap/scss/grid";
+//@import "~bootstrap/scss/transitions";
+//@import "~bootstrap/scss/dropdown";
+//@import "~bootstrap/scss/button-group";
+//@import "~bootstrap/scss/card";
+//@import "~bootstrap/scss/accordion";
+//@import "~bootstrap/scss/breadcrumb";
+//@import "~bootstrap/scss/pagination";
+//@import "~bootstrap/scss/badge";
+//@import "~bootstrap/scss/alert";
+//@import "~bootstrap/scss/progress";
+//@import "~bootstrap/scss/close";
+//@import "~bootstrap/scss/toasts";
+//@import "~bootstrap/scss/modal";
+//@import "~bootstrap/scss/tooltip";
+//@import "~bootstrap/scss/popover";
+//@import "~bootstrap/scss/carousel";
+//@import "~bootstrap/scss/spinners";
+
+// Custom
+@import "fonts";
+@import "language-select";
+@import "modal-dialog";
+@import "save-button";
+
+
+.hero {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 30vh;
+    overflow: hidden;
+    position: relative;
+    transition: min-height 400ms cubic-bezier(0.65, 0, 0.75, 1) 100ms, background-color 500ms ease-in-out;
+
+    @for $i from 2 through (length($grid-breakpoints) - 2) {
+        $size: nth(map-keys($grid-breakpoints), $i);
+
+        @include media-breakpoint-up($size) {
+            min-height: 25vh + ($i * 5);
+        }
+    }
+
+    &::before, &::after {
+        top: 100%;
+        content: "";
+        height: 100vw;
+        position: absolute;
+        right: 0;
+        transform: rotate(0deg);
+        transform-origin: top right;
+        transition: transform 300ms ease-out;
+        width: 150%;
+    }
+
+    &::before {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &::after {
+        background-color: white;
+    }
+
+    &:not(.home) {
+        background-color: darkcyan;
+
+        &::before {
+            transform: rotate(12deg);
+        }
+
+        &::after {
+            transform: rotate(10deg);
+        }
+
+        @for $i from 3 through (length($grid-breakpoints) - 2) {
+            $size: nth(map-keys($grid-breakpoints), $i);
+
+            @include media-breakpoint-up($size) {
+                &::before {
+                    transform: rotate(16deg - ($i * 2));
+                }
+
+                &::after {
+                    transform: rotate(14deg - ($i * 2));
+                }
+            }
+        }
+    }
+
+    &.home {
+        background-color: blueviolet;
+        min-height: calc(100vh - 4.5rem);
+    }
+
+    .content {
+        margin-top: -10vh;
+        text-align: center;
+
+        h1, h2 {
+            color: white;
+            font-family: Architects-Daughter, cursive;
+            text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            line-height: 1.7rem;
+        }
+    }
+}
