@@ -17,11 +17,11 @@
         "title": "Over mij"
     },
 
-    "Portfolio": {
+    "portfolio": {
         "title": "Portfolio"
     },
 
-    "Blog": {
+    "blog": {
         "title": "Blog"
     }
 }

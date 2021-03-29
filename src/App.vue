@@ -1,10 +1,5 @@
 <template>
-    <div class="hero" :class="$route.name">
-        <div class="content">
-            <h1>Hi, I'm Michael</h1>
-            <h2>A not so typical developer</h2>
-        </div>
-    </div>
+    <div class="hero" id="hero" :class="$route.name"></div>
 
     <navigation></navigation>
 
