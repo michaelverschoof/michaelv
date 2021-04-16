@@ -1,0 +1,36 @@
+@use 'src/assets/scss/app';
+@use 'src/assets/scss/fonts';
+
+.content {
+    padding: 1rem;
+    text-align: center;
+    transform: translateY(clamp(-50px, -3vw, -10px));
+
+    &.image {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+    }
+
+    h1, h2 {
+        color: white;
+        font-family: Architects-Daughter, cursive;
+        text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
+    }
+
+    h1 {
+        @include app.fluid-font(2rem, 3.5rem);
+        margin: 0;
+    }
+
+    h2 {
+        @include app.fluid-font(1.125rem, 2rem, 5vw);
+        margin: 2rem 0 0 0;
+    }
+
+    img {
+        width: clamp(100px, 20vw, 150px);
+        margin-left: clamp(1.5rem, 10vw, 3rem);
+    }
+}
