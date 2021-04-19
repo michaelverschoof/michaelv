@@ -4,7 +4,16 @@
 }
 
 .architect {
-    color: white;
     font-family: Architects-Daughter, cursive;
     text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(/src/assets/fonts/Poppins-Regular.ttf);
+}
+
+.poppins {
+    font-family: Poppins, sans-serif;
+    text-transform: uppercase;
 }

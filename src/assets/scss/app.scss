@@ -12,21 +12,41 @@
 @import "~bootstrap/scss/navbar";
 
 // Custom
-@import "fonts";
+//@import "fonts";
 @import "language-select";
 @import "modal-dialog";
 @import "save-button";
 
 $background-color: white;
+$text-color: #212529;
+$text-color-highlight: #df6e42;
 
 $transition-duration: 300ms;
 $transition-timing: ease;
 
+$hero-background: #008b8b;
 $hero-transition-delay: 100ms;
 
 @mixin fluid-font($min, $max, $ideal) {
     font-size: clamp(#{$min}, #{$ideal}, #{$max});
     line-height: clamp(#{$min}, #{$ideal}, #{$max});
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: $text-color;
+}
+
+a, a:hover {
+    color: $text-color;
+    text-decoration: none;
 }
 
 .hero {
@@ -59,7 +79,7 @@ $hero-transition-delay: 100ms;
     }
 
     &:not(.home) {
-        background-color: #008b8b;
+        background-color: $hero-background;
 
         &::before {
             transform: rotate(7deg);

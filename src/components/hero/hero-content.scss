@@ -18,6 +18,7 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
 
     h1, h2 {
         @extend .architect;
+        color: white;
     }
 
     h1 {

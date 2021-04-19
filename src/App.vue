@@ -1,7 +1,7 @@
 <template>
     <div class="hero" id="hero" :class="$route.name"></div>
 
-    <navigation></navigation>
+    <navigation :class="$route.name" />
 
     <div class="container-fluid">
         <div class="row">

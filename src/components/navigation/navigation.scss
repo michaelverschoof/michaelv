@@ -1,35 +1,80 @@
+@use "src/assets/scss/app";
+@use "src/assets/scss/fonts";
+
 .navigation {
-    height: 4.5rem;
-}
+    display: flex;
+    height: clamp(2.5rem, 10vw, 4.5rem);
+    margin: 0 auto;
+    max-width: 1200px; // TODO Should be container
+    padding: 0 1rem;
+    transition: transform app.$transition-duration app.$transition-timing;
 
-.nav-item {
-    transition: background-color 0.15s ease-in-out;
+    &:not(.home) {
+        transform-origin: top right;
+        transform: rotate(5deg);
 
-    .router-link-active {
-        &:nth-child(1) {
-            background-color: #ceead6;
-        }
-
-        &:nth-child(2) {
-            background-color: #f7d2ce;
-        }
-
-        &:nth-child(3) {
-            background-color: #cef0f3;
-        }
-    }
-
-    &:hover {
-        &:nth-child(1) {
-            background-color: #ceead6;
-        }
-
-        &:nth-child(2) {
-            background-color: #f7d2ce;
-        }
-
-        &:nth-child(3) {
-            background-color: #cef0f3;
+        .logo > span,
+        .menu > li > a > span,
+        .repositories > span {
+            will-change: transform;
+            transform: rotate(-5deg);
         }
     }
 }
+
+.logo, .repositories {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 85px;
+    max-width: 150px;
+}
+
+.logo {
+    @extend .architect;
+    @include app.fluid-font(1rem, 2rem, 5vw);
+
+    .highlight {
+        color: app.$text-color-highlight;
+    }
+}
+
+.menu, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    @extend .poppins;
+    display: flex;
+    flex-grow: 2;
+
+    li {
+        flex-grow: 1;
+
+        a {
+            align-items: center;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            transition-duration: app.$transition-duration;
+            transition-property: color, border-bottom-color;
+            transition-timing-function: app.$transition-timing;
+            width: 100%;
+
+            &:hover:not(.router-link-active) {
+                color: app.$hero-background;
+                border-bottom-color: app.$hero-background;
+            }
+
+            &.router-link-active {
+                color: app.$text-color-highlight;
+                border-bottom-color: app.$text-color-highlight;
+            }
+        }
+    }
+}
+
