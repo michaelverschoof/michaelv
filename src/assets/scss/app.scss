@@ -1,3 +1,4 @@
+//@import "transitions";
 // BOOTSTRAP THEME
 
 @import "~bootstrap/scss/functions";
@@ -18,9 +19,12 @@
 
 $background-color: white;
 
-$scaler: 8vw;
+$transition-duration: 300ms;
+$transition-timing: ease;
 
-@mixin fluid-font($min, $max, $ideal: $scaler) {
+$hero-transition-delay: 100ms;
+
+@mixin fluid-font($min, $max, $ideal) {
     font-size: clamp(#{$min}, #{$ideal}, #{$max});
     line-height: clamp(#{$min}, #{$ideal}, #{$max});
 }
@@ -32,7 +36,7 @@ $scaler: 8vw;
     min-height: clamp(150px, 33vw, 45vh);
     overflow: hidden;
     position: relative;
-    transition: min-height 300ms cubic-bezier(0.65, 0, 0.75, 1) 100ms, background-color 400ms ease-in-out;
+    transition: min-height $transition-duration cubic-bezier(0.65, 0, 0.75, 1) $hero-transition-delay, background-color ($transition-duration + $hero-transition-delay) $transition-timing;
 
     &::before, &::after {
         top: 100%;
@@ -42,7 +46,7 @@ $scaler: 8vw;
         right: 0;
         transform: rotate(0deg);
         transform-origin: top right;
-        transition: transform 300ms ease-out;
+        transition: transform $transition-duration $transition-timing;
         width: 150%;
     }
 

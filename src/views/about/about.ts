@@ -6,11 +6,11 @@ export default {
     components: {
         HeroContent
     },
-    setup () {
+    setup() {
         const { translate } = useTranslation();
 
         return {
             translate
-        }
+        };
     }
 };

@@ -1,3 +1,6 @@
+import { delayHeroAnimation } from '@/router';
+import { onMounted, ref } from 'vue';
+
 export default {
     name: 'hero-content',
     props: {
@@ -9,6 +12,16 @@ export default {
             type: String,
             required: false,
             default: null
+        }
+    },
+    setup() {
+        const animate = ref(false);
+
+        onMounted(() => animate.value = true);
+
+        return {
+            animate,
+            delayHeroAnimation
         }
     }
 };

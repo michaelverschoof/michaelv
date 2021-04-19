@@ -1,10 +1,17 @@
 <template>
     <teleport to="#hero">
-        <div class="content" :class="{ image: $slots.image }">
-            <h1>{{ title }}</h1>
-            <h2>{{ subtitle }}</h2>
-            <transition name="slide-fade">
-                <slot name="image" />
+        <div class="content" :class="{ image: $slots.image, delay: delayHeroAnimation }">
+
+            <transition name="fade">
+                <h1 v-if="animate">{{ title }}</h1>
+            </transition>
+
+            <transition name="fade-up">
+                <h2 v-if="animate">{{ subtitle }}</h2>
+            </transition>
+
+            <transition name="fade-left">
+                <slot v-if="animate" name="image" />
             </transition>
         </div>
     </teleport>
