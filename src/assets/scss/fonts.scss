@@ -1,4 +1,10 @@
 @font-face {
     font-family: Architects-Daughter;
-    src: url(../fonts/ArchitectsDaughter-Regular.ttf);
+    src: url(/src/assets/fonts/ArchitectsDaughter-Regular.ttf);
+}
+
+.architect {
+    color: white;
+    font-family: Architects-Daughter, cursive;
+    text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
 }

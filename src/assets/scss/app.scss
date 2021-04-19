@@ -1,3 +1,4 @@
+//@import "transitions";
 // BOOTSTRAP THEME
 
 @import "~bootstrap/scss/functions";
@@ -10,61 +11,32 @@
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
 
-//@import "~bootstrap/scss/mixins";
-//@import "~bootstrap/scss/bootstrap";
-//@import "~bootstrap/scss/functions";
-//@import "~bootstrap/scss/variables";
-//@import "~bootstrap/scss/utilities";
-//@import "~bootstrap/scss/helpers";
-//@import "~bootstrap/scss/root";
-//@import "~bootstrap/scss/images";
-//@import "~bootstrap/scss/tables";
-//@import "~bootstrap/scss/forms";
-//@import "~bootstrap/scss/buttons";
-//@import "~bootstrap/scss/list-group";
-//@import "~bootstrap/scss/reboot";
-//@import "~bootstrap/scss/grid";
-//@import "~bootstrap/scss/transitions";
-//@import "~bootstrap/scss/dropdown";
-//@import "~bootstrap/scss/button-group";
-//@import "~bootstrap/scss/card";
-//@import "~bootstrap/scss/accordion";
-//@import "~bootstrap/scss/breadcrumb";
-//@import "~bootstrap/scss/pagination";
-//@import "~bootstrap/scss/badge";
-//@import "~bootstrap/scss/alert";
-//@import "~bootstrap/scss/progress";
-//@import "~bootstrap/scss/close";
-//@import "~bootstrap/scss/toasts";
-//@import "~bootstrap/scss/modal";
-//@import "~bootstrap/scss/tooltip";
-//@import "~bootstrap/scss/popover";
-//@import "~bootstrap/scss/carousel";
-//@import "~bootstrap/scss/spinners";
-
 // Custom
 @import "fonts";
 @import "language-select";
 @import "modal-dialog";
 @import "save-button";
 
+$background-color: white;
+
+$transition-duration: 300ms;
+$transition-timing: ease;
+
+$hero-transition-delay: 100ms;
+
+@mixin fluid-font($min, $max, $ideal) {
+    font-size: clamp(#{$min}, #{$ideal}, #{$max});
+    line-height: clamp(#{$min}, #{$ideal}, #{$max});
+}
 
 .hero {
     align-items: center;
     display: flex;
     justify-content: center;
-    min-height: 30vh;
+    min-height: clamp(150px, 33vw, 45vh);
     overflow: hidden;
     position: relative;
-    transition: min-height 400ms cubic-bezier(0.65, 0, 0.75, 1) 100ms, background-color 500ms ease-in-out;
-
-    @for $i from 2 through (length($grid-breakpoints) - 2) {
-        $size: nth(map-keys($grid-breakpoints), $i);
-
-        @include media-breakpoint-up($size) {
-            min-height: 25vh + ($i * 5);
-        }
-    }
+    transition: min-height $transition-duration cubic-bezier(0.65, 0, 0.75, 1) $hero-transition-delay, background-color ($transition-duration + $hero-transition-delay) $transition-timing;
 
     &::before, &::after {
         top: 100%;
@@ -74,7 +46,7 @@
         right: 0;
         transform: rotate(0deg);
         transform-origin: top right;
-        transition: transform 300ms ease-out;
+        transition: transform $transition-duration $transition-timing;
         width: 150%;
     }
 
@@ -83,59 +55,23 @@
     }
 
     &::after {
-        background-color: white;
+        background-color: $background-color;
     }
 
     &:not(.home) {
-        background-color: darkcyan;
+        background-color: #008b8b;
 
         &::before {
-            transform: rotate(12deg);
+            transform: rotate(7deg);
         }
 
         &::after {
-            transform: rotate(10deg);
-        }
-
-        @for $i from 3 through (length($grid-breakpoints) - 2) {
-            $size: nth(map-keys($grid-breakpoints), $i);
-
-            @include media-breakpoint-up($size) {
-                &::before {
-                    transform: rotate(16deg - ($i * 2));
-                }
-
-                &::after {
-                    transform: rotate(14deg - ($i * 2));
-                }
-            }
+            transform: rotate(5deg);
         }
     }
 
     &.home {
         background-color: blueviolet;
         min-height: calc(100vh - 4.5rem);
-    }
-
-    .content {
-        margin-top: -10vh;
-        text-align: center;
-
-        h1, h2 {
-            color: white;
-            font-family: Architects-Daughter, cursive;
-            text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
-        }
-
-        h1 {
-            font-size: 4rem;
-            line-height: 4rem;
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            font-size: 1.7rem;
-            line-height: 1.7rem;
-        }
     }
 }

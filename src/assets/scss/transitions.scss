@@ -1,0 +1,49 @@
+@use 'src/assets/scss/app';
+
+@mixin transition($property: null, $delay: null) {
+    transition-duration: app.$transition-duration;
+    transition-timing-function: app.$transition-timing;
+
+    @if ($property) {
+        transition-property: $property;
+    }
+
+    @if ($delay) {
+        transition-delay: $delay;
+    }
+}
+
+/* Fade */
+.fade-enter-active,
+.fade-leave-active {
+    @include transition(opacity);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+/* Fade and slide up */
+.fade-up-enter-active,
+.fade-up-leave-active {
+    @include transition((opacity, transform));
+}
+
+.fade-up-enter-from,
+.fade-up-leave-to {
+    opacity: 0;
+    transform: translateY(25%);
+}
+
+/* Fade and slide left */
+.fade-left-enter-active,
+.fade-left-leave-active {
+    @include transition((opacity, transform));
+}
+
+.fade-left-enter-from,
+.fade-left-leave-to {
+    opacity: 0;
+    transform: translateX(25%);
+}

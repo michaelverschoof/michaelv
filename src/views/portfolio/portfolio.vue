@@ -1,6 +1,12 @@
 <template>
     <div class="overview">
 
+        <hero-content :title="translate('portfolio.title')">
+            <template #image>
+                <img src="@/assets/img/astounding-products.svg" alt="Portfolio" />
+            </template>
+        </hero-content>
+
         <div class="bg-blue-grey-1 p-4">
             <h2 class="mt-3">{{ translate('portfolio.title') }}</h2>
 

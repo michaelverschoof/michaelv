@@ -1,11 +1,11 @@
 <template>
     <div class="overview">
 
-        <teleport to="#hero">
-            <div class="content">
-                <h1>{{ translate('about.title') }}</h1>
-            </div>
-        </teleport>
+        <hero-content :title="translate('about.title')">
+            <template #image>
+                <img src="@/assets/img/programming.svg" alt="Programmer" />
+            </template>
+        </hero-content>
 
         <div class="bg-blue-grey-1 p-4">
             <h2 class="mt-3">{{ translate('about.title') }}</h2>
