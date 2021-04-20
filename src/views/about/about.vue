@@ -3,7 +3,7 @@
 
         <hero-content :title="translate('about.title')">
             <template #image>
-                <img src="@/assets/img/programming.svg" alt="Programmer" />
+                <img src="@/assets/images/programming.svg" alt="Programmer" />
             </template>
         </hero-content>
 

@@ -8,7 +8,7 @@
             <slot></slot>
         </span>
         <span v-if="saving" class="d-block loader text-center">
-            <img src="@/assets/img/loader/loader.svg" alt="">
+            <img src="@/assets/images/loader/loader.svg" alt="">
         </span>
     </button>
 </template>

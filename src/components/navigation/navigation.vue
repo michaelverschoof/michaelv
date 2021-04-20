@@ -23,10 +23,13 @@
         </ul>
 
         <div class="repositories">
-            <span>Git</span>
-            <span>npm</span>
+            <a href="https://github.com/michaelverschoof" target="_blank" title="GitHub">
+                <img src="@/assets/images/repositories/github.png" alt="GitHub">
+            </a>
+            <a href="https://www.npmjs.com/~michaelverschoof" target="_blank" title="NPM">
+                <img src="@/assets/images/repositories/npm.svg" alt="NPM">
+            </a>
         </div>
-<!--        <language-select class="user-lang" />-->
     </nav>
 </template>
 
