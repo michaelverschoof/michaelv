@@ -17,3 +17,8 @@
     font-family: Poppins, sans-serif;
     text-transform: uppercase;
 }
+
+@mixin fluid-font($min, $max, $ideal) {
+    font-size: clamp(#{$min}, #{$ideal}, #{$max});
+    line-height: clamp(#{$min}, #{$ideal}, #{$max});
+}

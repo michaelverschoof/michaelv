@@ -8,11 +8,6 @@ $transition-timing: ease;
 $hero-background: #008b8b;
 $hero-transition-delay: 100ms;
 
-@mixin fluid-font($min, $max, $ideal) {
-    font-size: clamp(#{$min}, #{$ideal}, #{$max});
-    line-height: clamp(#{$min}, #{$ideal}, #{$max});
-}
-
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -80,21 +75,3 @@ a, a:hover {
         min-height: calc(100vh - 4.5rem);
     }
 }
-
-///* Tiny devices (phones, 360px and down) */
-//@media only screen and (max-width: 360px) {...}
-//
-///* Extra small devices (phones, 600px and down) */
-//@media only screen and (max-width: 600px) {...}
-//
-///* Small devices (portrait tablets and large phones, 600px and up) */
-//@media only screen and (min-width: 600px) {...}
-//
-///* Medium devices (landscape tablets, 768px and up) */
-//@media only screen and (min-width: 768px) {...}
-//
-///* Large devices (laptops/desktops, 992px and up) */
-//@media only screen and (min-width: 992px) {...}
-//
-///* Extra large devices (large laptops and desktops, 1200px and up) */
-//@media only screen and (min-width: 1200px) {...}
