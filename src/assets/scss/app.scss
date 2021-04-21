@@ -1,3 +1,5 @@
+@use "src/assets/scss/media-queries";
+
 $background-color: white;
 $text-color: #212529;
 $text-color-highlight: #df6e42;
@@ -7,6 +9,7 @@ $transition-timing: ease;
 
 $hero-background: #008b8b;
 $hero-transition-delay: 100ms;
+$hero-rotation: 5deg;
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -29,6 +32,14 @@ a, a:hover {
     text-decoration: none;
 }
 
+@mixin fluid-padding {
+    padding: 0 2rem;
+
+    @include media-queries.for-phone-landscape-down {
+        padding: 0 1rem;
+    }
+}
+
 .hero {
     align-items: center;
     display: flex;
@@ -44,7 +55,6 @@ a, a:hover {
         height: 100vw;
         position: absolute;
         right: 0;
-        transform: rotate(0deg);
         transform-origin: top right;
         transition: transform $transition-duration $transition-timing;
         width: 150%;
@@ -62,11 +72,11 @@ a, a:hover {
         background-color: $hero-background;
 
         &::before {
-            transform: rotate(7deg);
+            transform: rotate($hero-rotation * 1.4);
         }
 
         &::after {
-            transform: rotate(5deg);
+            transform: rotate($hero-rotation);
         }
     }
 

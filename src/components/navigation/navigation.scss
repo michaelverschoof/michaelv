@@ -2,27 +2,33 @@
 @use "src/assets/scss/fonts";
 @use "src/assets/scss/media-queries";
 
+.navigation, .navigation .level-off {
+    transform-origin: top right;
+    transition-duration: app.$transition-duration, (app.$transition-duration * 0.5);
+    transition-property: transform, box-shadow;
+    transition-timing-function: app.$transition-timing;
+    will-change: transform;
+}
+
 .navigation {
+    @include app.fluid-padding;
+    background-color: app.$background-color;
     display: flex;
     height: clamp(2.5rem, 8vw, 4.5rem);
     justify-content: space-between;
-    margin: 0 auto;
-    padding: 0 2rem;
-    transition: transform app.$transition-duration app.$transition-timing;
 
-    @include media-queries.for-phone-landscape-down {
-        padding: 0 1rem;
+    &.sticking {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+        transition-delay: 0ms, (app.$transition-duration * 0.5);
     }
 
-    &:not(.home) {
-        transform-origin: top right;
-        transform: rotate(5deg);
+    &:not(.home):not(.sticking) {
+        transform: rotate(app.$hero-rotation);
 
-        .logo > span,
-        .menu > li > a > span,
-        .repositories a img {
-            will-change: transform;
-            transform: rotate(-5deg);
+        .level-off {
+            transform: rotate(-(app.$hero-rotation));
         }
     }
 }
@@ -92,7 +98,6 @@
 }
 
 .repositories {
-    align-items: stretch;
     flex-grow: 1;
     justify-content: space-evenly;
     max-width: 200px;

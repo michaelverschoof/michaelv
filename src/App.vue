@@ -1,14 +1,10 @@
 <template>
-    <div class="hero" id="hero" :class="$route.name"></div>
+    <div class="hero" id="hero" :class="$route.name" ref="hero"></div>
 
-    <navigation :class="$route.name" />
+    <navigation :class="[ $route.name, { sticking : sticking} ]" ref="navigation" />
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <router-view />
-            </div>
-        </div>
+    <div class="">
+        <router-view />
     </div>
 </template>
 

@@ -3,12 +3,12 @@ import { Routes } from '@/routes';
 
 export default {
     name: 'navigation-menu',
-    setup () {
+    setup() {
         const { translate } = useTranslation();
 
         return {
             translate,
             Routes
-        }
+        };
     }
 };

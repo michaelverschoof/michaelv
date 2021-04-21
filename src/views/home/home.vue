@@ -2,14 +2,9 @@
     <div class="overview">
         <hero-content :title="translate('home.title')" :subtitle="translate('home.subtitle')" />
 
-        <div class="bg-blue-grey-1 p-4">
-            <h2 class="mt-3">{{ translate('home.title') }}</h2>
-
-            <div class="bg-dark" style="min-height: 50vh">
-                Home
-            </div>
+        <div class="">
+            <h2 class="">Home</h2>
         </div>
-
     </div>
 </template>
 
