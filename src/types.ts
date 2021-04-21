@@ -22,3 +22,8 @@ export const LANGUAGES: Language[] = [
 export const enum StorageKeys {
     LANGUAGE = 'language'
 }
+
+/**
+ * Provide / inject identifiers
+ */
+export const FromHomepageIdentifier = Symbol();

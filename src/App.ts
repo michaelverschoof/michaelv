@@ -1,6 +1,9 @@
 import Hero from '@/components/header/hero.vue';
 import Navigation from '@/components/navigation/navigation.vue';
-import { onMounted, ref } from 'vue';
+import { Routes } from '@/routes';
+import { FromHomepageIdentifier } from '@/types';
+import { onMounted, provide, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default {
     name: 'app',
@@ -9,6 +12,16 @@ export default {
         Navigation
     },
     setup() {
+        const page = ref();
+        const fromHomePage = ref(false)
+        provide(FromHomepageIdentifier, fromHomePage);
+
+        const route = useRoute();
+        watch(() => route.name, (to, from) => {
+            fromHomePage.value = Routes.HOME === from;
+            page.value = to;
+        })
+
         const hero = ref();
         const sticking = ref(false);
 
@@ -25,6 +38,7 @@ export default {
         });
 
         return {
+            page,
             hero,
             sticking
         };

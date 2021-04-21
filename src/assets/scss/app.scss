@@ -11,6 +11,14 @@ $hero-background: #008b8b;
 $hero-transition-delay: 100ms;
 $hero-rotation: 5deg;
 
+@mixin fluid-padding {
+    padding: 0 2rem;
+
+    @include media-queries.for-phone-landscape-down {
+        padding: 0 1rem;
+    }
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -32,10 +40,6 @@ a, a:hover {
     text-decoration: none;
 }
 
-@mixin fluid-padding {
-    padding: 0 2rem;
-
-    @include media-queries.for-phone-landscape-down {
-        padding: 0 1rem;
-    }
+main {
+    @include fluid-padding;
 }

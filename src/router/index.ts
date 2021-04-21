@@ -3,8 +3,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '@/views/home/home.vue';
 import NotFound from '@/views/error/not-found.vue';
 
-let delayHeroAnimation = false;
-
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -38,11 +36,6 @@ const router = createRouter({
     routes
 });
 
-router.afterEach((to, from) => {
-    delayHeroAnimation = Routes.HOME === from.name;
-});
-
 export {
-    router,
-    delayHeroAnimation
+    router
 };
