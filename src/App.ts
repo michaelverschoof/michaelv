@@ -1,10 +1,12 @@
+import Hero from '@/components/header/hero.vue';
 import Navigation from '@/components/navigation/navigation.vue';
 import { onMounted, ref } from 'vue';
 
 export default {
     name: 'app',
     components: {
-        navigation: Navigation
+        Hero,
+        Navigation
     },
     setup() {
         const hero = ref();
@@ -15,7 +17,6 @@ export default {
         };
 
         const observer = new IntersectionObserver(observed, {
-            root: null,
             threshold: 0.001
         });
 

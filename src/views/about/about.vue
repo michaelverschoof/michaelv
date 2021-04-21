@@ -7,7 +7,7 @@
             </template>
         </hero-content>
 
-        <div class="">
+        <div class="" style="min-height: 150vh">
             <h2 class="">About</h2>
         </div>
     </div>
