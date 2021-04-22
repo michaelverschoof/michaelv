@@ -30,7 +30,7 @@ export default {
         };
 
         const observer = new IntersectionObserver(observed, {
-            threshold: 0.001
+            threshold: 0.0
         });
 
         onMounted(() => {

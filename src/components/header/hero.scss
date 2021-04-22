@@ -8,7 +8,7 @@
     overflow: hidden;
     position: relative;
     transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
-    background-color (app.$transition-duration + app.$hero-transition-delay) app.$transition-timing;
+    background-color app.$transition-duration app.$transition-timing;
 
     &::before, &::after {
         top: 100%;
@@ -42,7 +42,8 @@
     }
 
     &.home {
-        background-color: blueviolet;
+        background-image: radial-gradient(circle at top left, #4f084e, transparent 50%), radial-gradient(circle at bottom right, #006579, transparent 40%);
+        background-attachment: fixed;
         min-height: calc(100vh - 4.5rem);
     }
 }

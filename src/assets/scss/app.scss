@@ -1,6 +1,7 @@
 @use "src/assets/scss/media-queries";
 
 $background-color: white;
+$content-background-color: #040d21;
 $text-color: #212529;
 $text-color-highlight: #df6e42;
 
@@ -38,6 +39,10 @@ h1, h2, h3 {
 a, a:hover {
     color: $text-color;
     text-decoration: none;
+}
+
+header {
+    background-color: $content-background-color;
 }
 
 main {
