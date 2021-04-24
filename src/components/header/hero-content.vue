@@ -13,6 +13,7 @@
             <transition name="fade-left">
                 <slot v-if="animate" name="image" />
             </transition>
+
         </div>
     </teleport>
 </template>

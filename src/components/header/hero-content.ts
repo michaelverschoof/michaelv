@@ -1,5 +1,5 @@
-import { delayHeroAnimation } from '@/router';
-import { onMounted, ref } from 'vue';
+import { FromHomepageIdentifier } from '@/types';
+import { inject, onMounted, ref } from 'vue';
 
 export default {
     name: 'hero-content',
@@ -15,13 +15,15 @@ export default {
         }
     },
     setup() {
+        const delayHeroAnimation = inject(FromHomepageIdentifier, ref(false));
+
         const animate = ref(false);
 
-        onMounted(() => animate.value = true);
+        onMounted(() => (animate.value = true));
 
         return {
             animate,
             delayHeroAnimation
-        }
+        };
     }
 };

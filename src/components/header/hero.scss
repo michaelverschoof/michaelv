@@ -1,0 +1,48 @@
+@use "src/assets/scss/app";
+
+.hero {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: clamp(150px, 33vw, 45vh);
+    overflow: hidden;
+    position: relative;
+    transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
+    background-color (app.$transition-duration + app.$hero-transition-delay) app.$transition-timing;
+
+    &::before, &::after {
+        top: 100%;
+        content: "";
+        height: 100vw;
+        position: absolute;
+        right: 0;
+        transform-origin: top right;
+        transition: transform app.$transition-duration app.$transition-timing;
+        width: 150%;
+    }
+
+    &::before {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &::after {
+        background-color: app.$background-color;
+    }
+
+    &:not(.home) {
+        background-color: app.$hero-background;
+
+        &::before {
+            transform: rotate(app.$hero-rotation * 1.4);
+        }
+
+        &::after {
+            transform: rotate(app.$hero-rotation);
+        }
+    }
+
+    &.home {
+        background-color: blueviolet;
+        min-height: calc(100vh - 4.5rem);
+    }
+}

@@ -1,11 +1,13 @@
 <template>
-    <div class="hero" id="hero" :class="$route.name" ref="hero"></div>
+    <header ref="hero">
+        <hero :class="page" />
+    </header>
 
-    <navigation :class="[ $route.name, { sticking : sticking} ]" ref="navigation" />
+    <navigation :class="[ page, { sticking : sticking} ]" />
 
-    <div class="">
+    <main>
         <router-view />
-    </div>
+    </main>
 </template>
 
 <script lang="ts" src="./App.ts" />

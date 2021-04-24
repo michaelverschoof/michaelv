@@ -11,6 +11,14 @@ $hero-background: #008b8b;
 $hero-transition-delay: 100ms;
 $hero-rotation: 5deg;
 
+@mixin fluid-padding {
+    padding: 0 2rem;
+
+    @include media-queries.for-phone-landscape-down {
+        padding: 0 1rem;
+    }
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -32,56 +40,6 @@ a, a:hover {
     text-decoration: none;
 }
 
-@mixin fluid-padding {
-    padding: 0 2rem;
-
-    @include media-queries.for-phone-landscape-down {
-        padding: 0 1rem;
-    }
-}
-
-.hero {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    min-height: clamp(150px, 33vw, 45vh);
-    overflow: hidden;
-    position: relative;
-    transition: min-height $transition-duration cubic-bezier(0.65, 0, 0.75, 1) $hero-transition-delay, background-color ($transition-duration + $hero-transition-delay) $transition-timing;
-
-    &::before, &::after {
-        top: 100%;
-        content: "";
-        height: 100vw;
-        position: absolute;
-        right: 0;
-        transform-origin: top right;
-        transition: transform $transition-duration $transition-timing;
-        width: 150%;
-    }
-
-    &::before {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    &::after {
-        background-color: $background-color;
-    }
-
-    &:not(.home) {
-        background-color: $hero-background;
-
-        &::before {
-            transform: rotate($hero-rotation * 1.4);
-        }
-
-        &::after {
-            transform: rotate($hero-rotation);
-        }
-    }
-
-    &.home {
-        background-color: blueviolet;
-        min-height: calc(100vh - 4.5rem);
-    }
+main {
+    @include fluid-padding;
 }
