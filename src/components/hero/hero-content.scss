@@ -18,15 +18,17 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
 
     h1, h2 {
         @extend .architect;
+        color: white;
+        will-change: opacity;
     }
 
     h1 {
-        @include app.fluid-font(2rem, 3.5rem, 8vw);
+        @include fonts.fluid-font(2rem, 3.5rem, 8vw);
         margin: 0;
     }
 
     h2 {
-        @include app.fluid-font(1rem, 1.5rem, 4vw);
+        @include fonts.fluid-font(1rem, 1.5rem, 4vw);
         margin: 2em 0 0 0;
     }
 

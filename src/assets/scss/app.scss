@@ -1,17 +1,43 @@
+@use "src/assets/scss/media-queries";
+
 $background-color: white;
+$text-color: #212529;
+$text-color-highlight: #df6e42;
 
 $transition-duration: 300ms;
 $transition-timing: ease;
 
+$hero-background: #008b8b;
 $hero-transition-delay: 100ms;
+$hero-rotation: 5deg;
 
-@mixin fluid-font($min, $max, $ideal) {
-    font-size: clamp(#{$min}, #{$ideal}, #{$max});
-    line-height: clamp(#{$min}, #{$ideal}, #{$max});
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: $text-color;
 }
 
 h1, h2, h3 {
     font-weight: 500;
+}
+
+a, a:hover {
+    color: $text-color;
+    text-decoration: none;
+}
+
+@mixin fluid-padding {
+    padding: 0 2rem;
+
+    @include media-queries.for-phone-landscape-down {
+        padding: 0 1rem;
+    }
 }
 
 .hero {
@@ -29,7 +55,6 @@ h1, h2, h3 {
         height: 100vw;
         position: absolute;
         right: 0;
-        transform: rotate(0deg);
         transform-origin: top right;
         transition: transform $transition-duration $transition-timing;
         width: 150%;
@@ -44,14 +69,14 @@ h1, h2, h3 {
     }
 
     &:not(.home) {
-        background-color: #008b8b;
+        background-color: $hero-background;
 
         &::before {
-            transform: rotate(7deg);
+            transform: rotate($hero-rotation * 1.4);
         }
 
         &::after {
-            transform: rotate(5deg);
+            transform: rotate($hero-rotation);
         }
     }
 

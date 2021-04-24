@@ -1,29 +1,34 @@
 <template>
-    <nav class="navigation navbar navbar-expand sticky-top">
-        <div class="container-xl">
-            <router-link :to="{ name: Routes.HOME }" class="navbar-brand">
-                MichaelV
-            </router-link>
+    <nav class="navigation">
+        <router-link :to="{ name: Routes.HOME }" class="logo">
+            <span class="level-off">Michael<span class="highlight">V</span></span>
+        </router-link>
 
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item flex-grow-1 text-center">
-                    <router-link :to="{ name: Routes.ABOUT }" class="nav-link">
-                        {{ translate('navigation.menu.about') }}
-                    </router-link>
-                </li>
-                <li class="nav-item flex-grow-1 text-center">
-                    <router-link :to="{ name: Routes.PORTFOLIO }" class="nav-link">
-                        {{ translate('navigation.menu.portfolio') }}
-                    </router-link>
-                </li>
-                <li class="nav-item flex-grow-1 text-center">
-                    <router-link :to="{ name: Routes.BLOG }" class="nav-link">
-                        {{ translate('navigation.menu.blog') }}
-                    </router-link>
-                </li>
-            </ul>
+        <ul class="menu">
+            <li class="">
+                <router-link :to="{ name: Routes.ABOUT }">
+                    <span class="level-off">{{ translate('navigation.menu.about') }}</span>
+                </router-link>
+            </li>
+            <li class="">
+                <router-link :to="{ name: Routes.PORTFOLIO }">
+                    <span class="level-off">{{ translate('navigation.menu.portfolio') }}</span>
+                </router-link>
+            </li>
+            <li class="">
+                <router-link :to="{ name: Routes.BLOG }">
+                    <span class="level-off">{{ translate('navigation.menu.blog') }}</span>
+                </router-link>
+            </li>
+        </ul>
 
-            <language-select class="user-lang" />
+        <div class="repositories">
+            <a href="https://github.com/michaelverschoof" target="_blank" title="GitHub">
+                <img class="level-off" src="@/assets/images/repositories/github.png" alt="GitHub">
+            </a>
+            <a href="https://www.npmjs.com/~michaelverschoof" target="_blank" title="NPM">
+                <img class="level-off" src="@/assets/images/repositories/npm.svg" alt="NPM">
+            </a>
         </div>
     </nav>
 </template>
