@@ -2,18 +2,21 @@
 
 .hero {
     align-items: center;
+    background-image: linear-gradient(100deg, #180218, #4f084e 45%, #0a0a0a 45%, #11859c 46.5%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
     display: flex;
     justify-content: center;
     min-height: clamp(150px, 33vw, 45vh);
     overflow: hidden;
     position: relative;
     transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
-    background-color app.$transition-duration app.$transition-timing;
+    background-position (app.$transition-duration * 2) cubic-bezier(0.65, 0, 0.75, 1);
 
     &::before, &::after {
         top: 100%;
         content: "";
-        height: 100vw;
+        height: 15vw;
         position: absolute;
         right: 0;
         transform-origin: top right;
@@ -30,7 +33,7 @@
     }
 
     &:not(.home) {
-        background-color: app.$hero-background;
+        background-position: 85% 0;
 
         &::before {
             transform: rotate(app.$hero-rotation * 1.4);
@@ -42,9 +45,6 @@
     }
 
     &.home {
-        background-attachment: fixed;
-        background-image: radial-gradient(circle at top left, #4f084e, transparent 35%), radial-gradient(circle at 115% 80%, #006579, transparent 30%);
-        background-repeat: no-repeat;
         min-height: calc(100vh - clamp(2.5rem, 8vw, 4.5rem));
     }
 }
