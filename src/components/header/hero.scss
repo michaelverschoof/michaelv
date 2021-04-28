@@ -7,7 +7,7 @@
     background-size: 200% 100%;
     display: flex;
     justify-content: center;
-    min-height: clamp(150px, 33vw, 45vh);
+    min-height: clamp(150px, 30vw, 35vh);
     overflow: hidden;
     position: relative;
     transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
