@@ -2,7 +2,7 @@
 
 .hero {
     align-items: center;
-    background-image: linear-gradient(100deg, #180218, #4f084e 45%, #0a0a0a 45%, #11859c 46.5%);
+    background-image: linear-gradient(100deg, #180218, #4f084e 45%, #0a0a0a 45%, #11859c calc(45% + 1rem));
     background-repeat: no-repeat;
     background-size: 200% 100%;
     display: flex;
@@ -11,7 +11,7 @@
     overflow: hidden;
     position: relative;
     transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
-    background-position (app.$transition-duration * 2) cubic-bezier(0.65, 0, 0.75, 1);
+    background-position (app.$transition-duration + app.$hero-transition-delay) cubic-bezier(0.65, 0, 0.75, 1);
 
     &::before, &::after {
         top: 100%;
