@@ -3,9 +3,6 @@
 @use "src/assets/scss/media-queries";
 
 section {
-
-
-
     &.dark-background {
         @include app.fluid-padding;
         background-color: app.$content-background-color;
