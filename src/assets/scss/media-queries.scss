@@ -10,23 +10,23 @@
     }
 }
 
-//@mixin for-phone-landscape-up {
-//    @media only screen and (min-width: 641px) {
-//        @content;
-//    }
-//}
-//
-//@mixin for-tablet-landscape-up {
-//    @media only screen and (min-width: 900px) {
-//        @content;
-//    }
-//}
-//
-//@mixin for-desktop-up {
-//    @media only screen and (min-width: 1200px) {
-//        @content;
-//    }
-//}
+@mixin for-phone-landscape-up {
+    @media only screen and (min-width: 641px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-landscape-up {
+    @media only screen and (min-width: 900px) {
+        @content;
+    }
+}
+
+@mixin for-desktop-up {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
 //
 //@mixin for-big-desktop-up {
 //    @media only screen and (min-width: 1800px) {

@@ -1,0 +1,103 @@
+@use "src/assets/scss/app";
+@use "src/assets/scss/fonts";
+@use "src/assets/scss/media-queries";
+
+section {
+
+
+
+    &.dark-background {
+        @include app.fluid-padding;
+        background-color: app.$content-background-color;
+        color: app.$content-text-color;
+
+        @include media-queries.for-phone-landscape-up {
+            border-radius: 1em;
+        }
+
+        h2, h3 {
+            background: -webkit-linear-gradient(285deg, #b4efef, app.$hero-background);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+
+        h2, h3, .text {
+            max-width: 700px;
+        }
+
+        h2, h3 {
+            @include fonts.fluid-font(1.5rem, 2.75rem, 5vw);
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .text {
+                @include app.fluid-padding(bottom, 0.5);
+                @include fonts.fluid-font(1rem, 1.25rem, 1.5vw);
+                z-index: 1;
+            }
+
+            .image {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                &::before {
+                    border: 1px solid transparent;
+                    border-radius: 50%;
+                    box-shadow: 0 0 min(9vw, 60px) clamp(72px, 12vw, 120px) rgb(50, 133, 156);
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    z-index: 0;
+                }
+
+                img {
+                    width: clamp(120px, 20vw, 160px);
+                    z-index: 1;
+                }
+            }
+
+            @include media-queries.for-tablet-landscape-up {
+                flex-direction: row;
+
+                .image {
+                    @include app.fluid-padding(left, 0.5);
+
+                    &::before {
+                        top: 6vh;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(even) {
+
+            @include media-queries.for-tablet-landscape-up {
+                h2, h3 {
+                    align-self: flex-end;
+                }
+
+                .content {
+                    flex-direction: row-reverse;
+
+                    .image {
+                        @include app.fluid-padding(right, 0.5);
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

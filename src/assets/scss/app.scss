@@ -1,7 +1,9 @@
+@use "src/assets/scss/fonts";
 @use "src/assets/scss/media-queries";
 
-$background-color: white;
+$background-color: #fafafa;
 $content-background-color: #040d21;
+$content-text-color: #ccd2e2;
 $text-color: #212529;
 $text-color-highlight: #df6e42;
 
@@ -12,39 +14,22 @@ $hero-background: #008b8b;
 $hero-transition-delay: 100ms;
 $hero-rotation: 5deg;
 
-@mixin fluid-padding {
-    padding: 0 2rem;
+@mixin fluid-spacing($type, $positions: (top, right, bottom, left), $factor: 1) {
+    @each $position in $positions {
+        #{$type}-#{$position}: #{2rem * $factor};
+    }
 
-    @include media-queries.for-phone-landscape-down {
-        padding: 0 1rem;
+    @include media-queries.for-phone-landscape-up {
+        @each $position in $positions {
+            #{$type}-#{$position}: clamp((4rem * #{$factor}), (10vw * #{$factor}), (7rem * #{$factor}));
+        }
     }
 }
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@mixin fluid-margin($positions: (top, right, bottom, left), $factor: 1) {
+    @include fluid-spacing(margin, $positions, $factor);
 }
 
-html, body {
-    font-family: sans-serif;
-    font-size: 1rem;
-    color: $text-color;
-}
-
-h1, h2, h3 {
-    font-weight: 500;
-}
-
-a, a:hover {
-    color: $text-color;
-    text-decoration: none;
-}
-
-header {
-    background-color: $content-background-color;
-}
-
-main {
-    @include fluid-padding;
+@mixin fluid-padding($positions: (top, right, bottom, left), $factor: 1) {
+    @include fluid-spacing(padding, $positions, $factor);
 }

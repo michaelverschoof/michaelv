@@ -17,7 +17,7 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
     }
 
     h1, h2 {
-        @extend .poppins;
+        @extend .poppins-light;
         @extend .text-shadow;
         color: white;
         will-change: opacity;
@@ -30,6 +30,7 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
 
     h2 {
         @include fonts.fluid-font(1rem, 1.5rem, 4vw);
+        font-weight: 300;
         margin: 2em 0 0 0;
     }
 

@@ -25,13 +25,10 @@ export default {
         const hero = ref();
         const sticking = ref(false);
 
-        const observed: IntersectionObserverCallback = ([entry]): void => {
-            sticking.value = !entry.isIntersecting;
-        };
-
-        const observer = new IntersectionObserver(observed, {
-            threshold: 0.0
-        });
+        const observer = new IntersectionObserver(
+            ([entry]) => { sticking.value = !entry.isIntersecting; },
+            { threshold: 0.0 }
+        );
 
         onMounted(() => {
             observer.observe(hero.value);
