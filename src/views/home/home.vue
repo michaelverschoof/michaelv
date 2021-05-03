@@ -28,7 +28,7 @@
                     Having worked as a backender and frontender has left me with a “specific set of skills”.
                     Ranging from Java backend application development to frontend UI’s with HTML, CSS and JavaScript.
                     <br><br>
-                    Curious about the languages I have at my disposal? Check out the skill matrix.
+                    Curious about the languages I have at my disposal? Check out the skill graphs.
                 </p>
                 <div class="image">
                     <img class="round" src="@/assets/images/code-master.svg" alt="Programming">
@@ -58,7 +58,7 @@
             <div class="content">
                 <p class="text">
                     In the little free time I have left I create JavaScript packages that can be used by anyone, free of charge.
-                    These packages provide encapsulated functionality to make life easier for other developers so they don’t have to reinvent the wheel every time.
+                    These packages provide encapsulated functionality to make life easier for other developers.
                     <br><br>
                     Want to see what I’ve created so far? Follow the link and find out!
                 </p>
@@ -69,17 +69,22 @@
         </article>
     </section>
 
-<!--    <section>-->
-<!--        <article>-->
-<!--            <h2>My experiences</h2>-->
-<!--            <p>-->
-<!--                When building new things (at least new to me) I’ve started writing down my experiences with it.-->
-<!--                Most of these will be how-to’s on building specific functionalities or website parts ranging from Divi components to HTML, CSS or JavaScript challenges.-->
-<!--                <br><br>-->
-<!--                Want to know more? Check out my blog and see!-->
-<!--            </p>-->
-<!--        </article>-->
-<!--    </section>-->
+    <section class="dark-background">
+        <article>
+            <h2>My experiences</h2>
+            <div class="content">
+                <p class="text">
+                    When building new things (at least new to me) I’ve started writing down my experiences with it.
+                    Most of these will be how-to’s on building specific functionalities or website parts ranging from Divi components to HTML, CSS or JavaScript challenges.
+                    <br><br>
+                    Want to know more? Check out my blog and see!
+                </p>
+                <div class="image">
+                    <img src="@/assets/images/coffee-iv.svg" alt="Coding in free time">
+                </div>
+            </div>
+        </article>
+    </section>
 </template>
 
 <script lang="ts" src="./home.ts" />

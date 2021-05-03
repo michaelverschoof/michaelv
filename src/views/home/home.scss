@@ -26,6 +26,11 @@ section {
         }
 
         article {
+            @include app.fluid-padding(bottom);
+
+            &:last-child {
+                padding-bottom: 0;
+            }
 
             &:nth-child(even) {
 
@@ -44,6 +49,10 @@ section {
                     }
                 }
             }
+
+            .text, .image {
+                @include app.fluid-padding(bottom, 0.5);
+            }
         }
     }
 
@@ -56,7 +65,7 @@ section {
             justify-content: space-between;
 
             article {
-                width: 47.5%;
+                width: 45%;
 
                 &:nth-child(even) {
                     @include media-queries.for-phone-landscape-up {
@@ -64,6 +73,10 @@ section {
                             order: -1;
                         }
                     }
+                }
+
+                .text, .image {
+                    @include app.fluid-padding(bottom, 0.25);
                 }
             }
         }
@@ -83,13 +96,8 @@ section {
             margin-bottom: 1em;
         }
 
-        .text, .image {
-            @include app.fluid-padding(bottom, 0.5);
-        }
-
         .content {
             display: flex;
-            flex-direction: column-reverse;
             justify-content: space-between;
 
             .text {

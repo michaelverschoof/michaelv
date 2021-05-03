@@ -51,14 +51,6 @@ main {
         max-width: 1280px;
         width: 100%;
 
-        article {
-            @include app.fluid-padding(bottom);
-
-            &:last-child {
-                padding-bottom: 0;
-            }
-        }
-
         @include media-queries.for-phone-landscape-up {
             @include app.fluid-padding(horizontal, 0.25);
         }
