@@ -23,8 +23,12 @@ h1, h2, h3 {
 }
 
 a, a:hover {
-    color: app.$text-color;
     text-decoration: none;
+}
+
+a {
+    color: app.$text-color;
+    transition: color app.$transition-duration app.$transition-timing;
 }
 
 .round {
@@ -53,6 +57,14 @@ main {
 
         @include media-queries.for-phone-landscape-up {
             @include app.fluid-padding(horizontal, 0.25);
+        }
+
+        a {
+            font-weight: 700;
+
+            &:hover {
+                color: app.$text-color-highlight !important;
+            }
         }
     }
 }
