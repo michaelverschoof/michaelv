@@ -9,11 +9,13 @@ section {
         color: app.$content-text-color;
 
         @include media-queries.for-phone-landscape-up {
-            border-radius: 1em;
+            border-radius: 2rem;
+            box-shadow: 0 0 4px 0 black;
         }
 
         h2, h3 {
-            background: -webkit-linear-gradient(285deg, #b4efef, app.$hero-background);
+            color: #94ffff;
+            background: -webkit-linear-gradient(290deg, #94ffff 15%, #008282 60%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -35,11 +37,14 @@ section {
 
         .content {
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             justify-content: space-between;
 
-            .text {
+            .text, .image {
                 @include app.fluid-padding(bottom, 0.5);
+            }
+
+            .text {
                 @include fonts.fluid-font(1rem, 1.25rem, 1.5vw);
                 z-index: 1;
             }
@@ -48,6 +53,7 @@ section {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
+                flex-grow: 1;
                 position: relative;
 
                 &::before {
@@ -66,7 +72,7 @@ section {
                 }
             }
 
-            @include media-queries.for-tablet-landscape-up {
+            @include media-queries.for-phone-landscape-up {
                 flex-direction: row;
 
                 .image {
@@ -81,7 +87,7 @@ section {
 
         &:nth-child(even) {
 
-            @include media-queries.for-tablet-landscape-up {
+            @include media-queries.for-phone-landscape-up {
                 h2, h3 {
                     align-self: flex-end;
                 }

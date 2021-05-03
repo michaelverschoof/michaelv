@@ -15,6 +15,18 @@ $hero-transition-delay: 100ms;
 $hero-rotation: 5deg;
 
 @mixin fluid-spacing($type, $positions: (top, right, bottom, left), $factor: 1) {
+    @if $positions == all {
+        $positions: (top, right, bottom, left);
+    }
+
+    @if $positions == horizontal {
+        $positions: (right, left);
+    }
+
+    @if $positions == vertical {
+        $positions: (top, bottom);
+    }
+
     @each $position in $positions {
         #{$type}-#{$position}: #{2rem * $factor};
     }
