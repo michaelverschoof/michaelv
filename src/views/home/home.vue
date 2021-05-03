@@ -31,36 +31,43 @@
                     Curious about the languages I have at my disposal? Check out the skill matrix.
                 </p>
                 <div class="image">
-                    <img src="@/assets/images/code-master.svg" alt="Programming">
+                    <img class="round" src="@/assets/images/code-master.svg" alt="Programming">
                 </div>
             </div>
-
         </article>
     </section>
 
-<!--    <section>-->
-<!--        <article>-->
-<!--            <h2>The fruits of my labor</h2>-->
-<!--            <p>-->
-<!--                Using the skills I’ve acquired over the years I’ve created a lot of web-based software and websites.-->
-<!--                <br><br>-->
-<!--                These are created keeping user experience in mind whilst not losing the goal of the website.-->
-<!--                <br><br>-->
-<!--                Want to see what I’ve built?-->
-<!--            </p>-->
-<!--        </article>-->
+    <section>
+        <article>
+            <h2>The fruits of my labor</h2>
+            <div class="content">
+                <p class="text">
+                    Using the skills I’ve acquired over the years I’ve created a lot of web-based software and websites.
+                    These are created keeping user experience in mind whilst not losing the goal of the website.
+                    <br><br>
+                    Want to see what I’ve built?
+                </p>
+            </div>
+            <div class="image">
+                <img src="@/assets/images/astounding-products.svg" alt="Astounding products">
+            </div>
+        </article>
 
-<!--        <article>-->
-<!--            <h3>Giving back to the community</h3>-->
-<!--            <p>-->
-<!--                In the little free time I have left I create JavaScript packages that can be used by anyone, free of charge.-->
-<!--                <br><br>-->
-<!--                These packages provide encapsulated functionality to make life easier for other developers so they don’t have to reinvent the wheel every time.-->
-<!--                <br><br>-->
-<!--                Want to see what I’ve created so far? Follow the link and find out!-->
-<!--            </p>-->
-<!--        </article>-->
-<!--    </section>-->
+        <article>
+            <h3>Giving back</h3>
+            <div class="content">
+                <p class="text">
+                    In the little free time I have left I create JavaScript packages that can be used by anyone, free of charge.
+                    These packages provide encapsulated functionality to make life easier for other developers so they don’t have to reinvent the wheel every time.
+                    <br><br>
+                    Want to see what I’ve created so far? Follow the link and find out!
+                </p>
+            </div>
+            <div class="image">
+                <img src="@/assets/images/coffee-iv.svg" alt="Coding in free time">
+            </div>
+        </article>
+    </section>
 
 <!--    <section>-->
 <!--        <article>-->

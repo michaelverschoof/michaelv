@@ -27,6 +27,10 @@ a, a:hover {
     text-decoration: none;
 }
 
+.round {
+    border-radius: 50%;
+}
+
 header {
     background-color: app.$content-background-color;
 }
@@ -39,7 +43,7 @@ main {
 
     @include media-queries.for-phone-landscape-up {
         @include app.fluid-padding(horizontal, 0.5);
-    };
+    }
 
     section {
         @include app.fluid-padding(vertical);
