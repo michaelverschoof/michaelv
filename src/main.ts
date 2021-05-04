@@ -1,3 +1,4 @@
+import { appear } from '@/directives';
 import MichaelV from '@/michaelv.vue';
 import en from '@/assets/i18n/en.json';
 import nl from '@/assets/i18n/nl.json';
@@ -23,4 +24,5 @@ const i18n = createI18n({
 createApp(MichaelV)
     .use(router)
     .use(i18n)
+    .directive('appear', appear)
     .mount('#app');

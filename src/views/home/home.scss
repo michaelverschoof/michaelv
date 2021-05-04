@@ -32,10 +32,6 @@ section {
         article {
             @include app.fluid-padding(bottom);
 
-            &:last-child {
-                padding-bottom: 0;
-            }
-
             &:nth-child(even) {
 
                 @include media-queries.for-phone-landscape-up {
@@ -72,6 +68,7 @@ section {
         }
 
         @include media-queries.for-phone-landscape-up {
+            align-items: flex-start;
             flex-direction: row;
             justify-content: space-between;
 
@@ -79,6 +76,8 @@ section {
                 width: 45%;
 
                 &:nth-child(even) {
+                    @include app.fluid-margin(top);
+
                     @include media-queries.for-phone-landscape-up {
                         .image {
                             order: -1;
@@ -96,6 +95,11 @@ section {
     article {
         display: flex;
         flex-direction: column;
+        @include app.fluid-padding(bottom, 0.5);
+
+        &:last-child {
+            padding-bottom: 0;
+        }
 
         h2, h3, .text {
             max-width: 700px;
@@ -109,6 +113,7 @@ section {
 
         .content {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
 
             .text {
