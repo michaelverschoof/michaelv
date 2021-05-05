@@ -6,17 +6,17 @@
         </router-link>
 
         <ul class="menu">
-            <li class="">
+            <li>
                 <router-link :to="{ name: Routes.ABOUT }">
                     <span class="level-off">{{ translate('navigation.menu.about') }}</span>
                 </router-link>
             </li>
-            <li class="">
+            <li>
                 <router-link :to="{ name: Routes.PORTFOLIO }">
                     <span class="level-off">{{ translate('navigation.menu.portfolio') }}</span>
                 </router-link>
             </li>
-            <li class="">
+            <li>
                 <router-link :to="{ name: Routes.BLOG }">
                     <span class="level-off">{{ translate('navigation.menu.blog') }}</span>
                 </router-link>
@@ -29,6 +29,9 @@
             </a>
             <a href="https://www.npmjs.com/~michaelverschoof" target="_blank" title="NPM">
                 <img class="level-off" src="@/assets/images/repositories/npm.svg" alt="NPM">
+            </a>
+            <a href="https://michael-verschoof.medium.com/" target="_blank" title="Medium">
+                <img class="level-off" src="@/assets/images/repositories/medium.svg" alt="Medium">
             </a>
         </div>
         </div>
