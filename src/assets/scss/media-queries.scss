@@ -1,32 +1,50 @@
+/**
+ * Phones in portrait mode
+ */
 @mixin for-phone-portrait-down {
     @media only screen and (max-width: 375px) {
         @content;
     }
 }
 
+@mixin for-phone-portrait-up {
+    @media only screen and (min-width: 376px) {
+        @content;
+    }
+}
+
+/**
+ * Phones in landscape mode
+ */
 @mixin for-phone-landscape-down {
     @media only screen and (max-width: 640px) {
         @content;
     }
 }
 
-//@mixin for-phone-landscape-up {
-//    @media only screen and (min-width: 641px) {
-//        @content;
-//    }
-//}
-//
-//@mixin for-tablet-landscape-up {
-//    @media only screen and (min-width: 900px) {
-//        @content;
-//    }
-//}
-//
-//@mixin for-desktop-up {
-//    @media only screen and (min-width: 1200px) {
-//        @content;
-//    }
-//}
+@mixin for-phone-landscape-up {
+    @media only screen and (min-width: 641px) {
+        @content;
+    }
+}
+
+/**
+ * Tablets in landscape mode
+ */
+@mixin for-tablet-landscape-up {
+    @media only screen and (min-width: 900px) {
+        @content;
+    }
+}
+
+/**
+ * Desktop
+ */
+@mixin for-desktop-up {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}
 //
 //@mixin for-big-desktop-up {
 //    @media only screen and (min-width: 1800px) {

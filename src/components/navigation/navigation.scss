@@ -11,16 +11,21 @@
 }
 
 .navigation {
-    @include app.fluid-padding;
     background-color: app.$background-color;
     display: flex;
     height: clamp(2.5rem, 8vw, 4.5rem);
-    justify-content: space-between;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
 
     &.sticking {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
-        position: sticky;
-        top: 0;
         transition-delay: 0ms, (app.$transition-duration * 0.5);
     }
 
@@ -62,11 +67,11 @@
 }
 
 .menu {
-    @extend .poppins;
     display: flex;
     flex-grow: 10;
     justify-content: space-evenly;
     max-width: 750px;
+    text-transform: uppercase;
 
     li {
         flex-basis: 30%;

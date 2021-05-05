@@ -1,4 +1,5 @@
-import App from '@/App.vue';
+import { appear } from '@/directives';
+import MichaelV from '@/michaelv.vue';
 import en from '@/assets/i18n/en.json';
 import nl from '@/assets/i18n/nl.json';
 import { useStorage } from '@/composables/storage';
@@ -20,7 +21,8 @@ const i18n = createI18n({
     }
 });
 
-createApp(App)
-.use(router)
-.use(i18n)
-.mount('#app');
+createApp(MichaelV)
+    .use(router)
+    .use(i18n)
+    .directive('appear', appear)
+    .mount('#app');

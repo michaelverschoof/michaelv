@@ -1,5 +1,5 @@
-@use 'src/assets/scss/app';
-@use 'src/assets/scss/fonts';
+@use "src/assets/scss/app";
+@use "src/assets/scss/fonts";
 
 $slow: app.$transition-duration * 2;
 $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
@@ -7,7 +7,7 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
 .content {
     padding: 1rem;
     text-align: center;
-    transform: translateY(clamp(-50px, -3vw, -10px));
+    transform: translateY(clamp(-50px, -5vw, -10px));
 
     &.image {
         align-items: center;
@@ -17,28 +17,50 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
     }
 
     h1, h2 {
-        @extend .architect;
+        @extend .poppins-light;
+        @extend .text-shadow;
         color: white;
         will-change: opacity;
     }
 
     h1 {
-        @include fonts.fluid-font(2rem, 3.5rem, 8vw);
+        @include fonts.fluid-font(1.75rem, 3.5rem, 8vw);
         margin: 0;
     }
 
     h2 {
         @include fonts.fluid-font(1rem, 1.5rem, 4vw);
+        font-weight: 300;
         margin: 2em 0 0 0;
     }
 
     img {
         width: clamp(100px, 20vw, 150px);
-        margin-left: clamp(1.5rem, 10vw, 3rem);
+        margin-left: clamp(1.5rem, 5vw, 3rem);
     }
 
     /* Homepage specific animation */
     .home & {
+        flex-direction: column;
+
+        img {
+            width: clamp(100px, 45vw, 200px);
+            margin-left: 0;
+            margin-top: 10vh;
+        }
+
+        h1, h2 {
+            @extend .architect;
+        }
+
+        h1 {
+            @include fonts.fluid-font(2.5rem, 3.5rem, 6.5vw);
+        }
+
+        h2 {
+            @include fonts.fluid-font(1.125rem, 1.5rem, 3.5vw);
+        }
+
         /* Title animation */
         .fade-enter-active,
         .fade-leave-active {
@@ -46,11 +68,17 @@ $hero-resize-delay: app.$transition-duration + (app.$hero-transition-delay * 2);
             transition-delay: $hero-resize-delay;
         }
 
-        /* Subtitle animation */
+        /* Subtitle and image animation */
         .fade-up-enter-active,
         .fade-up-leave-active {
             transition-duration: $slow;
             transition-delay: (app.$transition-duration + (app.$hero-transition-delay * 10));
+        }
+
+        .fade-left-enter-active,
+        .fade-left-leave-active {
+            transition-duration: $slow;
+            transition-delay: (app.$transition-duration + (app.$hero-transition-delay * 15));
         }
     }
 

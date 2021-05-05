@@ -1,5 +1,6 @@
 <template>
     <nav class="navigation">
+        <div class="container">
         <router-link :to="{ name: Routes.HOME }" class="logo">
             <span class="level-off">Michael<span class="highlight">V</span></span>
         </router-link>
@@ -29,6 +30,7 @@
             <a href="https://www.npmjs.com/~michaelverschoof" target="_blank" title="NPM">
                 <img class="level-off" src="@/assets/images/repositories/npm.svg" alt="NPM">
             </a>
+        </div>
         </div>
     </nav>
 </template>

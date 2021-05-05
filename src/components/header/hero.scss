@@ -2,18 +2,21 @@
 
 .hero {
     align-items: center;
+    background-image: linear-gradient(100deg, #180218, #4f084e 45%, #0a0a0a 45%, #11859c calc(45% + 1rem));
+    background-repeat: no-repeat;
+    background-size: 200% 100%;
     display: flex;
     justify-content: center;
-    min-height: clamp(150px, 33vw, 45vh);
+    min-height: clamp(150px, 30vw, 35vh);
     overflow: hidden;
     position: relative;
     transition: min-height app.$transition-duration cubic-bezier(0.65, 0, 0.75, 1) app.$hero-transition-delay,
-    background-color (app.$transition-duration + app.$hero-transition-delay) app.$transition-timing;
+    background-position (app.$transition-duration + app.$hero-transition-delay) cubic-bezier(0.65, 0, 0.75, 1);
 
     &::before, &::after {
         top: 100%;
         content: "";
-        height: 100vw;
+        height: 15vw;
         position: absolute;
         right: 0;
         transform-origin: top right;
@@ -30,7 +33,7 @@
     }
 
     &:not(.home) {
-        background-color: app.$hero-background;
+        background-position: 85% 0;
 
         &::before {
             transform: rotate(app.$hero-rotation * 1.4);
@@ -42,7 +45,6 @@
     }
 
     &.home {
-        background-color: blueviolet;
-        min-height: calc(100vh - 4.5rem);
+        min-height: calc(100vh - clamp(2.5rem, 8vw, 4.5rem));
     }
 }

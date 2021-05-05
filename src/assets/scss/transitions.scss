@@ -33,7 +33,7 @@
 .fade-up-enter-from,
 .fade-up-leave-to {
     opacity: 0;
-    transform: translateY(25%);
+    transform: translateY(2vw);
 }
 
 /* Fade and slide left */
@@ -45,5 +45,44 @@
 .fade-left-enter-from,
 .fade-left-leave-to {
     opacity: 0;
-    transform: translateX(25%);
+    transform: translateX(2vw);
+}
+
+/* Fade and slide right */
+.fade-right-enter-active,
+.fade-right-leave-active {
+    @include transition((opacity, transform));
+}
+
+.fade-right-enter-from,
+.fade-right-leave-to {
+    opacity: 0;
+    transform: translateX(-2vw);
+}
+
+/* Fade and zoom */
+.fade-zoom-enter-active,
+.fade-zoom-leave-active {
+    @include transition((opacity, transform));
+}
+
+.fade-zoom-enter-from,
+.fade-zoom-leave-to {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Prevent issue with reveal component */
+.appear {
+    display: flex;
+    flex-direction: column;
+}
+
+.appear {
+    &.fade-up-enter-from,
+    &.fade-left-enter-from,
+    &.fade-right-enter-from,
+    &.fade-zoom-enter-from {
+        transition: none;
+    }
 }

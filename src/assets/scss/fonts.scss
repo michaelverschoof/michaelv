@@ -3,22 +3,34 @@
     src: url(/src/assets/fonts/ArchitectsDaughter-Regular.ttf);
 }
 
-.architect {
-    font-family: Architects-Daughter, cursive;
-    text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
+@font-face {
+    font-family: Poppins;
+    src: url(/src/assets/fonts/Poppins-Medium.ttf);
 }
 
 @font-face {
-    font-family: Poppins;
-    src: url(/src/assets/fonts/Poppins-Regular.ttf);
+    font-family: Poppins-light;
+    src: url(/src/assets/fonts/Poppins-Light.ttf);
+}
+
+.architect {
+    font-family: Architects-Daughter, cursive;
+    @extend .text-shadow;
 }
 
 .poppins {
     font-family: Poppins, sans-serif;
-    text-transform: uppercase;
+}
+
+.poppins-light {
+    font-family: Poppins-light, sans-serif;
+}
+
+.text-shadow {
+    text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.4);
 }
 
 @mixin fluid-font($min, $max, $ideal) {
     font-size: clamp(#{$min}, #{$ideal}, #{$max});
-    line-height: clamp(#{$min}, #{$ideal}, #{$max});
+    line-height: calc(clamp(#{$min}, #{$ideal}, #{$max}) * 1.5);
 }

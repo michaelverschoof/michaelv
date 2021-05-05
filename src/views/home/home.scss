@@ -1,0 +1,162 @@
+@use "src/assets/scss/app";
+@use "src/assets/scss/fonts";
+@use "src/assets/scss/media-queries";
+
+section {
+
+    &.dark-background {
+        @include app.fluid-padding;
+        background-color: app.$content-background-color;
+        color: app.$content-text-color;
+
+        @include media-queries.for-phone-landscape-up {
+            border-radius: 2rem;
+            box-shadow: 0 0 4px 0 black;
+        }
+
+        a {
+            color: app.$content-text-color;
+        }
+
+        h2, h3 {
+            color: #94ffff;
+            background: -webkit-linear-gradient(290deg, #94ffff 15%, #008282 75%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        article .content .image {
+            flex-grow: 1;
+        }
+
+        article {
+            @include app.fluid-padding(bottom);
+
+            &:nth-child(even) {
+
+                @include media-queries.for-phone-landscape-up {
+                    h2, h3 {
+                        align-self: flex-end;
+                    }
+
+                    .content {
+                        flex-direction: row-reverse;
+
+                        .image {
+                            @include app.fluid-padding(right, 0.5);
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+
+            .text, .image {
+                @include app.fluid-padding(bottom, 0.5);
+            }
+        }
+    }
+
+    &:not(.dark-background) {
+        display: flex;
+        flex-direction: column;
+
+        h2, h3 {
+            color: #94ffff;
+            background: -webkit-linear-gradient(290deg, #ad13ab 30%, #5a0058 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @include media-queries.for-phone-landscape-up {
+            align-items: flex-start;
+            flex-direction: row;
+            justify-content: space-between;
+
+            article {
+                width: 45%;
+
+                &:nth-child(even) {
+                    @include app.fluid-margin(top);
+
+                    @include media-queries.for-phone-landscape-up {
+                        .image {
+                            order: -1;
+                        }
+                    }
+                }
+
+                .text, .image {
+                    @include app.fluid-padding(bottom, 0.25);
+                }
+            }
+        }
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        @include app.fluid-padding(bottom, 0.5);
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        h2, h3, .text {
+            max-width: 700px;
+        }
+
+        h2, h3 {
+            @include fonts.fluid-font(1.5rem, 2.75rem, 5vw);
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .text {
+                @include fonts.fluid-font(1rem, 1.25rem, 1.5vw);
+                z-index: 1;
+            }
+
+            .image {
+                position: relative;
+
+                &::before {
+                    border: 1px solid transparent;
+                    border-radius: 50%;
+                    box-shadow: 0 0 min(9vw, 60px) clamp(72px, 12vw, 120px) rgb(50, 133, 156);
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    z-index: 0;
+                }
+            }
+
+            @include media-queries.for-phone-landscape-up {
+                flex-direction: row;
+
+                .image {
+                    @include app.fluid-padding(left, 0.5);
+
+                    &::before {
+                        top: 6vh;
+                    }
+                }
+            }
+        }
+
+        .image {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: clamp(120px, 20vw, 160px);
+                z-index: 1;
+            }
+        }
+    }
+}
