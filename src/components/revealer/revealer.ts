@@ -1,6 +1,6 @@
-import { defineComponent, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
-export default defineComponent({
+export default {
     name: 'revealer',
     props: {
         transition: {
@@ -9,7 +9,7 @@ export default defineComponent({
             default: 'fade'
         }
     },
-    setup(props) {
+    setup() {
         const target = ref();
         const animate = ref(false);
 
@@ -29,8 +29,7 @@ export default defineComponent({
 
         return {
             animate,
-            target,
-            transition: props.transition
+            target
         };
     }
-});
+};
