@@ -5,7 +5,7 @@ export const appear: Directive = {
         element.style.visibility = 'hidden';
     },
     updated(element: HTMLElement, binding: DirectiveBinding<boolean>, node: VNode) {
-        if (!binding.value === !binding.oldValue || null === node?.transition) {
+        if (!binding.value === !binding.oldValue || null === node.transition) {
             return;
         }
 
