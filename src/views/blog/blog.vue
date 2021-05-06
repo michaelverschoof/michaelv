@@ -5,11 +5,22 @@
         </template>
     </hero-content>
 
-    <ul class="bg-blue-grey-1 p-4">
-        <li v-for="story in stories" :ref="story.guid">
-            {{ story.title }}
-        </li>
-    </ul>
+    <section class="stories">
+        <ul>
+            <li v-for="story in stories" :ref="story.guid">
+                <a :href="story.link" target="_blank">
+                    <div class="image"
+                         :style="{ backgroundImage: `url(${story.thumbnail})` }"
+                    ></div>
+                    <div class="title">
+                        {{ story.title }}
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
 </template>
 
 <script lang="ts" src="./blog.ts" />
+
+<style lang="scss" src="./blog.scss" scoped />

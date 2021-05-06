@@ -1,6 +1,6 @@
 import HeroContent from '@/components/header/hero-content.vue';
 import { useTranslation } from '@/composables/i18n';
-import { ref } from 'vue';
+import { useStories } from '@/composables/stories';
 
 export default {
     name: 'blog',
@@ -9,20 +9,11 @@ export default {
     },
     setup() {
         const { translate } = useTranslation();
+        const { stories, get } = useStories();
 
-        const stories = ref();
-
-        const get = () => {
-            fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@michael-verschoof')
-            .then(response => response.json())
-            .then(body => (stories.value = body.items))
-            .catch(
-                exception => console.error(exception)
-                // Do error handling
-            );
-        };
-
-        get();
+        if (!stories.value || stories.value.length === 0) {
+            get();
+        }
 
         return {
             stories,
