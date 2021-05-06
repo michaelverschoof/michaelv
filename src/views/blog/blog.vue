@@ -5,13 +5,11 @@
         </template>
     </hero-content>
 
-    <div class="bg-blue-grey-1 p-4">
-        <h2 class="mt-3">{{ translate('blog.title') }}</h2>
-
-        <div class="bg-dark" style="min-height: 50vh">
-            Portfolio
-        </div>
-    </div>
+    <ul class="bg-blue-grey-1 p-4">
+        <li v-for="story in stories" :ref="story.guid">
+            {{ story.title }}
+        </li>
+    </ul>
 </template>
 
 <script lang="ts" src="./blog.ts" />
