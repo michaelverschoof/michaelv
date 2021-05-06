@@ -16,17 +16,21 @@
         }
 
         li {
-            border: 2px solid #11859c;
-            border-radius: 0.5rem;
-            transition-property: box-shadow, transform;
-            transition-duration: app.$transition-duration;
-            transition-timing-function: app.$transition-timing;
-            will-change: box-shadow, transform;
-
             a {
+                border: 2px solid #11859c;
+                border-radius: 0.5rem;
                 display: block;
                 height: 100%;
                 font-weight: 500;
+                transition: box-shadow, color, transform;
+                transition-duration: app.$transition-duration;
+                transition-timing-function: app.$transition-timing;
+                will-change: box-shadow, transform;
+
+                &:hover {
+                    box-shadow: 4px 4px 8px 0 rgb(0 0 0 / 30%);
+                    transform: scale(1.05);
+                }
             }
 
             .image {
@@ -43,11 +47,6 @@
             .title {
                 padding: 1rem;
                 text-align: center;
-            }
-
-            &:hover {
-                box-shadow: 4px 4px 8px 0 rgb(0 0 0 / 30%);
-                transform: scale(1.05);
             }
 
             &:last-child .image {

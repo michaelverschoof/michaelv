@@ -6,18 +6,24 @@
     </hero-content>
 
     <section class="stories">
-        <ul>
-            <li v-for="story in stories" :ref="story.guid">
-                <a :href="story.link" target="_blank">
-                    <div class="image"
-                         :style="{ backgroundImage: `url(${story.thumbnail})` }"
-                    ></div>
-                    <div class="title">
-                        {{ story.title }}
-                    </div>
-                </a>
-            </li>
-        </ul>
+
+        <transition-group name="fade-left-staggered" tag="ul">
+
+                <template v-if="show">
+                    <li v-for="(story, index) in stories" :key="index" :style="{'--i': index}">
+                        <a :href="story.link" target="_blank">
+                            <div class="image"
+                                 :style="{ backgroundImage: `url(${story.thumbnail})` }"
+                            ></div>
+                            <div class="title">
+                                {{ story.title }}
+                            </div>
+                        </a>
+                    </li>
+                </template>
+
+        </transition-group>
+
     </section>
 </template>
 
