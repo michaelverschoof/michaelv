@@ -32,6 +32,12 @@ a {
     transition: color app.$transition-duration app.$transition-timing;
 }
 
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .round {
     border-radius: 50%;
 }
@@ -51,7 +57,6 @@ main {
     }
 
     section {
-        @include app.fluid-padding(vertical);
         @include app.fluid-padding(horizontal, 0.5);
         max-width: 1280px;
         width: 100%;

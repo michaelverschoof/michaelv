@@ -3,6 +3,7 @@
 @use "src/assets/scss/media-queries";
 
 section {
+    @include app.fluid-padding(vertical);
 
     &.dark-background {
         @include app.fluid-padding;

@@ -5,13 +5,26 @@
         </template>
     </hero-content>
 
-    <div class="bg-blue-grey-1 p-4">
-        <h2 class="mt-3">{{ translate('blog.title') }}</h2>
+    <section class="stories">
 
-        <div class="bg-dark" style="min-height: 50vh">
-            Portfolio
-        </div>
-    </div>
+        <transition-group name="fade-left-staggered" tag="ul">
+
+            <template v-if="show">
+                <li v-for="(story, index) in stories" :key="index" :style="[{ '--item-delay': index}, delay ? '--total-delay: 500ms' : null ]">
+                    <a :href="story.link" target="_blank">
+                        <div class="image" :style="{ backgroundImage: `url(${story.thumbnail})` }"></div>
+                        <div class="title">
+                            {{ story.title }}
+                        </div>
+                    </a>
+                </li>
+            </template>
+
+        </transition-group>
+
+    </section>
 </template>
 
 <script lang="ts" src="./blog.ts" />
+
+<style lang="scss" src="./blog.scss" scoped />

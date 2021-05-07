@@ -1,0 +1,57 @@
+@use "src/assets/scss/app";
+@use "src/assets/scss/media-queries";
+
+.stories {
+    ul {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+
+        @include media-queries.for-phone-portrait-up {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include media-queries.for-tablet-landscape-up {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        li {
+            a {
+                border: 2px solid #11859c;
+                border-radius: 0.5rem;
+                display: block;
+                height: 100%;
+                font-weight: 500;
+                transition: box-shadow, color, transform;
+                transition-duration: app.$transition-duration;
+                transition-timing-function: app.$transition-timing;
+                will-change: box-shadow, transform;
+
+                &:hover {
+                    box-shadow: 4px 4px 8px 0 rgb(0 0 0 / 30%);
+                    transform: scale(1.05);
+                }
+            }
+
+            .image {
+                border-top-left-radius: calc(0.35rem);
+                border-top-right-radius: calc(0.35rem);
+                height: max(125px, 20vw);
+
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+            }
+
+            .title {
+                padding: 1rem;
+                text-align: center;
+            }
+
+            &:last-child .image {
+                background-size: 50%;
+            }
+        }
+    }
+}

@@ -27,3 +27,14 @@ export const enum StorageKeys {
  * Provide / inject identifiers
  */
 export const FromHomepageIdentifier = Symbol();
+
+/**
+ * Medium.com feed
+ */
+export interface Story {
+    title: string;
+    thumbnail: string;
+    pubDate: string;
+    link: string;
+    guid: string;
+}
