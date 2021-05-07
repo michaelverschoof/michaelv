@@ -1,7 +1,8 @@
 import HeroContent from '@/components/header/hero-content.vue';
 import { useTranslation } from '@/composables/i18n';
 import { useStories } from '@/composables/stories';
-import { computed, onMounted, ref } from 'vue';
+import { FromHomepageIdentifier } from '@/types';
+import { computed, inject, onMounted, ref } from 'vue';
 
 export default {
     name: 'blog',
@@ -9,6 +10,8 @@ export default {
         HeroContent
     },
     setup() {
+        const delay = inject(FromHomepageIdentifier, ref(false));
+
         const { translate } = useTranslation();
         const { stories, get } = useStories();
 
@@ -25,6 +28,7 @@ export default {
         });
 
         return {
+            delay,
             show,
             stories,
             translate

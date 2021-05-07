@@ -97,7 +97,7 @@
  */
 .fade-left-staggered-enter {
     &-active {
-        @include transition((opacity, transform), calc(100ms * var(--i)));
+        @include transition((opacity, transform), calc(100ms * var(--item-delay) + var(--total-delay, 0ms)));
         transition-duration: app.$transition-duration * 1.5;
     }
 
