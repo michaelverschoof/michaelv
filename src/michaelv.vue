@@ -3,11 +3,13 @@
         <hero :class="page" />
     </header>
 
-    <navigation :class="[ page, { sticking : sticking} ]" />
+    <navigation :class="[ page, { sticking: sticking } ]" />
 
-    <main :class="page">
-        <router-view />
-    </main>
+    <router-view v-slot="{ Component }">
+        <transition :name="pageTransition" mode="out-in">
+            <component :is="Component" :class="page"></component>
+        </transition>
+    </router-view>
 </template>
 
 <script lang="ts" src="./michaelv.ts" />
