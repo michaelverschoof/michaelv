@@ -15,21 +15,20 @@ export default {
         const { translate } = useTranslation();
         const { stories, get } = useStories();
 
-        const animate = ref(false);
-
-        const show = computed(() => stories.value.length > 0 && animate.value === true);
+        const show = ref(false);
+        const animate = computed(() => stories.value.length > 0 && show.value === true);
 
         onMounted(() => {
             if (!stories.value || stories.value.length === 0) {
                 get();
             }
 
-            animate.value = true;
+            show.value = true;
         });
 
         return {
             delay,
-            show,
+            animate,
             stories,
             translate
         };
