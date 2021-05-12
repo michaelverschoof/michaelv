@@ -13,14 +13,19 @@ export default {
     },
     setup() {
         const page = ref();
-        const fromHomePage = ref(false)
-        provide(FromHomepageIdentifier, fromHomePage);
+        const fromHomepage = ref(false);
+        const pageTransition = ref('page-from-left');
+        provide(FromHomepageIdentifier, fromHomepage);
 
         const route = useRoute();
         watch(() => route.name, (to, from) => {
-            fromHomePage.value = Routes.HOME === from;
+            fromHomepage.value = Routes.HOME === from;
             page.value = to;
-        })
+        });
+
+        watch(() => route.meta.id as number, (to, from) => {
+            pageTransition.value = from && from > to ? 'page-from-left' : 'page-from-right';
+        });
 
         const hero = ref();
         const sticking = ref(false);
@@ -35,8 +40,9 @@ export default {
         });
 
         return {
-            page,
             hero,
+            page,
+            pageTransition,
             sticking
         };
     }

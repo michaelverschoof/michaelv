@@ -14,6 +14,21 @@
 }
 
 /**
+ * Prevent issue with reveal component
+ */
+.appear {
+    display: flex;
+    flex-direction: column;
+
+    &.fade-up-enter-from,
+    &.fade-left-enter-from,
+    &.fade-right-enter-from,
+    &.fade-zoom-enter-from {
+        transition: none;
+    }
+}
+
+/**
  * Fade
  */
 .fade {
@@ -94,11 +109,11 @@
 
 /**
  * Fade and slide left with delays
+ * This only enters on entry
  */
 .fade-left-staggered-enter {
     &-active {
-        @include transition((opacity, transform), calc(100ms * var(--item-delay) + var(--total-delay, 0ms)));
-        transition-duration: app.$transition-duration * 1.5;
+        @include transition((opacity, transform), calc(100ms * var(--item-delay) + var(--starting-delay, #{app.$transition-duration})));
     }
 
     &-from {
@@ -108,16 +123,29 @@
 }
 
 /**
- * Prevent issue with reveal component
+ * Page specific transitions
+ * This reverses the animation direction on leave
  */
-.appear {
-    display: flex;
-    flex-direction: column;
+.page-from {
+    $translate: 25vw;
 
-    &.fade-up-enter-from,
-    &.fade-left-enter-from,
-    &.fade-right-enter-from,
-    &.fade-zoom-enter-from {
-        transition: none;
+    &-left, &-right {
+        &-enter-active,
+        &-leave-active {
+            @include transition((opacity, transform));
+        }
+
+        &-enter-from,
+        &-leave-to {
+            opacity: 0;
+        }
+    }
+
+    &-left-enter-from, &-right-leave-to {
+        transform: translateX(-$translate);
+    }
+
+    &-left-leave-to, &-right-enter-from {
+        transform: translateX($translate);
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <teleport to="#hero">
-        <div class="content" :class="{ image: $slots.image, delay: delayHeroAnimation }">
+        <div class="content" :class="{ image: $slots.image, delay }">
 
             <div class="title">
                 <transition name="fade">

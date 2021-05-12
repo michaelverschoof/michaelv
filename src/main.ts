@@ -21,6 +21,15 @@ const i18n = createI18n({
     }
 });
 
+// const app = createApp(MichaelV)
+//     .use(router)
+//     .use(i18n)
+//     .directive('appear', appear);
+//
+// router.isReady().then(() => {
+//     app.mount('#app');
+// });
+
 createApp(MichaelV)
     .use(router)
     .use(i18n)

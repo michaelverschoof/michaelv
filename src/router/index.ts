@@ -7,27 +7,32 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
         name: Routes.HOME,
-        component: Home
+        component: Home,
+        meta: { id: 0 }
     },
     {
         path: '/about-me',
         name: Routes.ABOUT,
-        component: () => import(/* webpackChunkName: "about" */ '../views/about/about.vue')
+        component: () => import(/* webpackChunkName: "about" */ '../views/about/about.vue'),
+        meta: { id: 1 }
     },
     {
         path: '/portfolio',
         name: Routes.PORTFOLIO,
-        component: () => import(/* webpackChunkName: "portfolio" */ '../views/portfolio/portfolio.vue')
+        component: () => import(/* webpackChunkName: "portfolio" */ '../views/portfolio/portfolio.vue'),
+        meta: { id: 2 }
     },
     {
         path: '/blog',
         name: Routes.BLOG,
-        component: () => import(/* webpackChunkName: "blog" */ '../views/blog/blog.vue')
+        component: () => import(/* webpackChunkName: "blog" */ '../views/blog/blog.vue'),
+        meta: { id: 3 }
     },
     {
         path: '/:catchAll(.*)',
         name: '404',
-        component: NotFound
+        component: NotFound,
+        meta: { id: 99 } // TODO: Check if we actually need the meta here
     }
 ];
 

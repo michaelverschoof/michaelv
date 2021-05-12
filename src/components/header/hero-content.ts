@@ -15,7 +15,7 @@ export default {
         }
     },
     setup() {
-        const delayHeroAnimation = inject(FromHomepageIdentifier, ref(false));
+        const delay = inject(FromHomepageIdentifier, ref(false));
 
         const animate = ref(false);
 
@@ -23,7 +23,7 @@ export default {
 
         return {
             animate,
-            delayHeroAnimation
+            delay
         };
     }
 };
